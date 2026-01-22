@@ -1,0 +1,27 @@
+name: ARC Runner Demo
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  demo:
+    runs-on: arc-runner-set   # ИМЯ должно совпадать с INSTALLATION_NAME
+    steps:
+      - name: Show runner info
+        run: |
+          echo "Runner name: $RUNNER_NAME"
+          echo "Runner OS: $RUNNER_OS"
+          echo "Hostname:"
+          hostname
+          echo "CPU info:"
+          nproc
+          echo "Memory:"
+          free -h
+
+      - name: Simple workload
+        run: |
+          echo "Doing some fake CI work..."
+          sleep 10
+          echo "Done"
