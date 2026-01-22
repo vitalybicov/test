@@ -5,6 +5,10 @@ on:
     branches: [ "main" ]
   workflow_dispatch:
 
+strategy:
+  matrix:
+    i: [1,2,3]
+
 jobs:
   demo:
     runs-on: arc-runner-set   # ИМЯ должно совпадать с INSTALLATION_NAME
